@@ -113,7 +113,7 @@
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>422.000000:918.000000</string>
+				<string>422.000000:917.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Set Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -215,7 +215,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>422.000000:814.000000</string>
+				<string>422.000000:813.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -260,7 +260,7 @@ end run</string>
 					<dict>
 						<key>tokenizedValue</key>
 						<array>
-							<string>[[ Shell Command ]] Use '@' to place filename, otherwise it places it after your command.</string>
+							<string>[[ Shell Command ]] Use '@' to place filename.</string>
 						</array>
 					</dict>
 					<key>requireInput</key>
@@ -288,7 +288,7 @@ end run</string>
 					<key>defaultAnswer</key>
 					<string>open @</string>
 					<key>defaultMessage</key>
-					<string>[[ Shell Command ]] Use '@' to place filename, otherwise it places it after your command.</string>
+					<string>[[ Shell Command ]] Use '@' to place filename.</string>
 					<key>requireInput</key>
 					<true/>
 				</dict>
@@ -396,7 +396,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>422.000000:772.000000</string>
+				<string>422.000000:771.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Ask for Text.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -506,7 +506,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>422.000000:590.000000</string>
+				<string>422.000000:589.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Set Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -549,8 +549,6 @@ end run</string>
 				<dict>
 					<key>Container</key>
 					<string>List</string>
-					<key>Optional</key>
-					<true/>
 					<key>Types</key>
 					<array>
 						<string>*</string>
@@ -620,7 +618,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>422.000000:548.000000</string>
+				<string>422.000000:547.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -663,11 +661,9 @@ end run</string>
 				<dict>
 					<key>Container</key>
 					<string>List</string>
-					<key>Optional</key>
-					<true/>
 					<key>Types</key>
 					<array>
-						<string>com.apple.applescript.object</string>
+						<string>*</string>
 					</array>
 				</dict>
 				<key>AMRequiredResources</key>
@@ -732,7 +728,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>422.000000:506.000000</string>
+				<string>422.000000:505.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -780,8 +776,7 @@ end run</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	set file_keyword to "@" -- special keyword to replace with file path	if input is not {} then --if there's input at all		set cmd_list to {}		set shell_cmd to "open"		set file_list to {}		if the class of the input is list then			set shell_cmd to the first item of input			set file_list to items 2 thru end of input		end if				repeat with f in file_list			set posix_file_path to POSIX path of f			if contains_chars(shell_cmd, file_keyword) then				set new_cmd to replace_chars(shell_cmd, file_keyword, posix_file_path)			else				set new_cmd to (shell_cmd &amp; " " &amp; posix_file_path)			end if			set end of cmd_list to new_cmd		end repeat				set cmd_results_list to {}		--tell application "Terminal"		repeat with command in cmd_list			--activate			execCmd(command, 0)			(*try					set output to do script command					if output is not "" then						set end of cmd_results_list to output					end if				on error error_string number error_number					set end of cmd_results_list to (error_string)				end try*)		end repeat		--end tell			end if		(*if (count of cmd_results_list) &gt; 0 then		return cmd_results_list --pass first line of each output to list action	else		error number -128 -- end script early to avoid displaying list action	end if*)	end runon contains_chars(this_text, search_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	if (count of item_list) is 0 then		return false	else		return true	end ifend contains_charson replace_chars(this_text, search_string, replacement_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	set AppleScript's text item delimiters to the replacement_string	set this_text to the item_list as string	set AppleScript's text item delimiters to ""	return this_textend replace_charson execCmd(cmd, pause)	tell application "Terminal"		activate	end tell	tell application "System Events"		tell application process "Terminal"			tell application "System Events" to keystroke "t" using command down			keystroke cmd			keystroke return
-			delay 0.128		end tell	end tell	delay pauseend execCmd</string>
+					<string>on run {input, parameters}	set file_keyword to "@" -- special keyword to replace with file path	if input is not {} then --if there's input at all		set cmd_list to {}		set shell_cmd to "open"		set file_list to {}		if the class of the input is list then			set shell_cmd to the first item of input			set file_list to items 2 thru end of input		end if				repeat with f in file_list			set posix_file_path to POSIX path of f			set new_cmd to (shell_cmd &amp; " " &amp; posix_file_path) -- not working not sure why			if contains_chars(shell_cmd, file_keyword) then				set new_cmd to replace_chars(shell_cmd, file_keyword, posix_file_path)			end if			set end of cmd_list to new_cmd		end repeat				set error_list to {}		repeat with command in cmd_list			try				set output to execCmd(command, 0)			on error error_string number error_number				set end of error_list to (error_string)			end try		end repeat			end if	end runon contains_chars(this_text, search_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	if (count of item_list) is 0 then		return false	else		return true	end ifend contains_charson replace_chars(this_text, search_string, replacement_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	set AppleScript's text item delimiters to the replacement_string	set this_text to the item_list as string	set AppleScript's text item delimiters to ""	return this_textend replace_charson execCmd(cmd, pause)	tell application "Terminal"		set cmd_output to do script cmd		activate	end tell	(*tell application "System Events"		tell application process "Terminal"			tell application "System Events" to keystroke "t" using command down			keystroke cmd			keystroke return			delay 0.128		end tell	end tell*)	delay pause	return cmd_outputend execCmd</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -837,7 +832,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>422.000000:464.000000</string>
+				<string>422.000000:463.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -847,42 +842,42 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>48038B77-D3D5-4207-9E0B-E931574915D1</key>
+		<key>1C170A52-52C6-4907-B4A1-85C374014789</key>
 		<dict>
 			<key>from</key>
 			<string>23044594-E1AB-4607-AB06-A869CF593B63 - 23044594-E1AB-4607-AB06-A869CF593B63</string>
 			<key>to</key>
 			<string>1F591D3B-56D0-493B-9D44-FC657AE46AB3 - 1F591D3B-56D0-493B-9D44-FC657AE46AB3</string>
 		</dict>
-		<key>7FB23C0C-4FE5-4A74-AE18-04EF43A0E736</key>
-		<dict>
-			<key>from</key>
-			<string>1D5CE354-08AB-490E-AE5A-C1E8B49E3B90 - 1D5CE354-08AB-490E-AE5A-C1E8B49E3B90</string>
-			<key>to</key>
-			<string>8004D682-BE80-4A7D-8525-77E8E39459D5 - 8004D682-BE80-4A7D-8525-77E8E39459D5</string>
-		</dict>
-		<key>A4A1D2E8-FE24-45BA-837E-A2B1C08B3EC7</key>
-		<dict>
-			<key>from</key>
-			<string>212F9D48-25C6-435F-90F4-B3BBC0CE3807 - 212F9D48-25C6-435F-90F4-B3BBC0CE3807</string>
-			<key>to</key>
-			<string>1D5CE354-08AB-490E-AE5A-C1E8B49E3B90 - 1D5CE354-08AB-490E-AE5A-C1E8B49E3B90</string>
-		</dict>
-		<key>B3A2151E-8930-43C5-9D47-56CAABCAFD84</key>
-		<dict>
-			<key>from</key>
-			<string>65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A - 65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A</string>
-			<key>to</key>
-			<string>7A413591-C18E-4618-A2AC-B4B192FBF8E1 - 7A413591-C18E-4618-A2AC-B4B192FBF8E1</string>
-		</dict>
-		<key>B4E93CBC-290B-468C-A9A4-6BC47A046F42</key>
+		<key>78579698-C3DE-49F1-B3D4-87CD7389979E</key>
 		<dict>
 			<key>from</key>
 			<string>1F591D3B-56D0-493B-9D44-FC657AE46AB3 - 1F591D3B-56D0-493B-9D44-FC657AE46AB3</string>
 			<key>to</key>
 			<string>65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A - 65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A</string>
 		</dict>
-		<key>E51AC502-853A-4B97-AC70-23C14DCD96D0</key>
+		<key>8C598CB9-5170-4E0B-9C25-463B3E532D26</key>
+		<dict>
+			<key>from</key>
+			<string>1D5CE354-08AB-490E-AE5A-C1E8B49E3B90 - 1D5CE354-08AB-490E-AE5A-C1E8B49E3B90</string>
+			<key>to</key>
+			<string>8004D682-BE80-4A7D-8525-77E8E39459D5 - 8004D682-BE80-4A7D-8525-77E8E39459D5</string>
+		</dict>
+		<key>9BE36AD0-15B9-4619-8897-30D01E9CBF86</key>
+		<dict>
+			<key>from</key>
+			<string>212F9D48-25C6-435F-90F4-B3BBC0CE3807 - 212F9D48-25C6-435F-90F4-B3BBC0CE3807</string>
+			<key>to</key>
+			<string>1D5CE354-08AB-490E-AE5A-C1E8B49E3B90 - 1D5CE354-08AB-490E-AE5A-C1E8B49E3B90</string>
+		</dict>
+		<key>D3FA13B6-7E3E-451B-99F6-DF6490FEF34D</key>
+		<dict>
+			<key>from</key>
+			<string>65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A - 65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A</string>
+			<key>to</key>
+			<string>7A413591-C18E-4618-A2AC-B4B192FBF8E1 - 7A413591-C18E-4618-A2AC-B4B192FBF8E1</string>
+		</dict>
+		<key>D6BF90B6-23AF-4015-923C-F2742405D644</key>
 		<dict>
 			<key>from</key>
 			<string>7A413591-C18E-4618-A2AC-B4B192FBF8E1 - 7A413591-C18E-4618-A2AC-B4B192FBF8E1</string>
