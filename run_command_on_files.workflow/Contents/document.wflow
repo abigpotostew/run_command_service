@@ -113,7 +113,7 @@
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>413.500000:829.000000</string>
+				<string>422.000000:1023.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Set Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -212,12 +212,10 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>413.500000:725.000000</string>
+				<string>422.000000:919.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -398,7 +396,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>413.500000:683.000000</string>
+				<string>422.000000:877.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Ask for Text.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -508,7 +506,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>413.500000:501.000000</string>
+				<string>422.000000:695.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Set Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -551,8 +549,6 @@ end run</string>
 				<dict>
 					<key>Container</key>
 					<string>List</string>
-					<key>Optional</key>
-					<true/>
 					<key>Types</key>
 					<array>
 						<string>*</string>
@@ -622,7 +618,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>413.500000:459.000000</string>
+				<string>422.000000:653.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -665,11 +661,9 @@ end run</string>
 				<dict>
 					<key>Container</key>
 					<string>List</string>
-					<key>Optional</key>
-					<true/>
 					<key>Types</key>
 					<array>
-						<string>com.apple.applescript.object</string>
+						<string>*</string>
 					</array>
 				</dict>
 				<key>AMRequiredResources</key>
@@ -734,7 +728,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>413.500000:417.000000</string>
+				<string>422.000000:611.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -782,7 +776,7 @@ end run</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	set file_keyword to "@" -- special keyword to replace with file path	set output_list to {}	if input is not {} then --if there's input at all		set shell_cmd to "open"		set file_list to {}		if the class of the input is list then			set shell_cmd to the first item of input			set file_list to items 2 thru end of input		end if				repeat with f in file_list			set posix_file_path to POSIX path of f			if contains_chars(shell_cmd, file_keyword) then				set new_cmd to replace_chars(shell_cmd, file_keyword, posix_file_path)			else				set new_cmd to (shell_cmd &amp; " " &amp; posix_file_path)			end if			set end of output_list to new_cmd		end repeat				set error_list to {}		repeat with command in output_list			try				set output to do shell script command			on error error_string number error_number				set end of error_list to (error_string)			end try		end repeat			end if		if (count of error_list) &gt; 0 then		return error_list --pass errors to list action	else		error number -128 -- end script early to avoid displaying list action	end if	end runon contains_chars(this_text, search_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	if (count of item_list) is 0 then		return false	else		return true	end ifend contains_charson replace_chars(this_text, search_string, replacement_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	set AppleScript's text item delimiters to the replacement_string	set this_text to the item_list as string	set AppleScript's text item delimiters to ""	return this_textend replace_chars</string>
+					<string>on run {input, parameters}	set file_keyword to "@" -- special keyword to replace with file path	if input is not {} then --if there's input at all		set output_list to {}		set shell_cmd to "open"		set file_list to {}		if the class of the input is list then			set shell_cmd to the first item of input			set file_list to items 2 thru end of input		end if				repeat with f in file_list			set posix_file_path to POSIX path of f			if contains_chars(shell_cmd, file_keyword) then				set new_cmd to replace_chars(shell_cmd, file_keyword, posix_file_path)			else				set new_cmd to (shell_cmd &amp; " " &amp; posix_file_path)			end if			set end of output_list to new_cmd		end repeat				set cmd_results_list to {}		repeat with command in output_list			try				set output to do shell script command				if output is not "" then					set end of cmd_results_list to output				end if			on error error_string number error_number				set end of cmd_results_list to (error_string)			end try		end repeat			end if		if (count of cmd_results_list) &gt; 0 then		return cmd_results_list --pass first line of each output to list action	else		error number -128 -- end script early to avoid displaying list action	end if	end runon contains_chars(this_text, search_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	if (count of item_list) is 0 then		return false	else		return true	end ifend contains_charson replace_chars(this_text, search_string, replacement_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	set AppleScript's text item delimiters to the replacement_string	set this_text to the item_list as string	set AppleScript's text item delimiters to ""	return this_textend replace_chars</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -838,7 +832,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>413.500000:375.000000</string>
+				<string>422.000000:569.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -889,7 +883,7 @@ end run</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>prompt</key>
-					<string>[[ Shell Command ]] Error</string>
+					<string>[[ Shell Command ]] Output</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.ChooseFromList</string>
@@ -933,69 +927,67 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
-				<false/>
+				<true/>
 				<key>location</key>
-				<string>413.500000:62.000000</string>
+				<string>422.000000:125.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Choose from List.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
-			<false/>
+			<true/>
 		</dict>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>3C09BCC5-6F43-4DA8-BE30-73BA93D2EA36</key>
-		<dict>
-			<key>from</key>
-			<string>7A413591-C18E-4618-A2AC-B4B192FBF8E1 - 7A413591-C18E-4618-A2AC-B4B192FBF8E1</string>
-			<key>to</key>
-			<string>212F9D48-25C6-435F-90F4-B3BBC0CE3807 - 212F9D48-25C6-435F-90F4-B3BBC0CE3807</string>
-		</dict>
-		<key>49BDC077-6FA6-4A90-8892-8CAABACB04E8</key>
+		<key>13D9CA29-4031-441F-ACD6-E34314D34D7D</key>
 		<dict>
 			<key>from</key>
 			<string>212F9D48-25C6-435F-90F4-B3BBC0CE3807 - 212F9D48-25C6-435F-90F4-B3BBC0CE3807</string>
 			<key>to</key>
 			<string>1D5CE354-08AB-490E-AE5A-C1E8B49E3B90 - 1D5CE354-08AB-490E-AE5A-C1E8B49E3B90</string>
 		</dict>
-		<key>7C1F290C-8016-48A5-948B-4A0E0585A606</key>
+		<key>46EAE08D-3584-42B2-A144-B3DB64A478AE</key>
 		<dict>
 			<key>from</key>
 			<string>1D5CE354-08AB-490E-AE5A-C1E8B49E3B90 - 1D5CE354-08AB-490E-AE5A-C1E8B49E3B90</string>
 			<key>to</key>
 			<string>8004D682-BE80-4A7D-8525-77E8E39459D5 - 8004D682-BE80-4A7D-8525-77E8E39459D5</string>
 		</dict>
-		<key>8E34CE13-AC80-4F52-9E10-0BC330FD5F92</key>
-		<dict>
-			<key>from</key>
-			<string>1F591D3B-56D0-493B-9D44-FC657AE46AB3 - 1F591D3B-56D0-493B-9D44-FC657AE46AB3</string>
-			<key>to</key>
-			<string>65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A - 65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A</string>
-		</dict>
-		<key>9A86B149-E5B8-4805-B4D3-EB1223ABA82D</key>
-		<dict>
-			<key>from</key>
-			<string>8004D682-BE80-4A7D-8525-77E8E39459D5 - 8004D682-BE80-4A7D-8525-77E8E39459D5</string>
-			<key>to</key>
-			<string>0BEE290F-11B2-4DCD-9908-E2CC442F8CE2 - 0BEE290F-11B2-4DCD-9908-E2CC442F8CE2</string>
-		</dict>
-		<key>B5318E7A-C5D4-492D-8A8C-6B3B2760554B</key>
-		<dict>
-			<key>from</key>
-			<string>65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A - 65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A</string>
-			<key>to</key>
-			<string>7A413591-C18E-4618-A2AC-B4B192FBF8E1 - 7A413591-C18E-4618-A2AC-B4B192FBF8E1</string>
-		</dict>
-		<key>FA1C0E6A-51B5-457B-9B76-24144C2B888F</key>
+		<key>48038B77-D3D5-4207-9E0B-E931574915D1</key>
 		<dict>
 			<key>from</key>
 			<string>23044594-E1AB-4607-AB06-A869CF593B63 - 23044594-E1AB-4607-AB06-A869CF593B63</string>
 			<key>to</key>
 			<string>1F591D3B-56D0-493B-9D44-FC657AE46AB3 - 1F591D3B-56D0-493B-9D44-FC657AE46AB3</string>
+		</dict>
+		<key>B3A2151E-8930-43C5-9D47-56CAABCAFD84</key>
+		<dict>
+			<key>from</key>
+			<string>65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A - 65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A</string>
+			<key>to</key>
+			<string>7A413591-C18E-4618-A2AC-B4B192FBF8E1 - 7A413591-C18E-4618-A2AC-B4B192FBF8E1</string>
+		</dict>
+		<key>B4E93CBC-290B-468C-A9A4-6BC47A046F42</key>
+		<dict>
+			<key>from</key>
+			<string>1F591D3B-56D0-493B-9D44-FC657AE46AB3 - 1F591D3B-56D0-493B-9D44-FC657AE46AB3</string>
+			<key>to</key>
+			<string>65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A - 65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A</string>
+		</dict>
+		<key>E51AC502-853A-4B97-AC70-23C14DCD96D0</key>
+		<dict>
+			<key>from</key>
+			<string>7A413591-C18E-4618-A2AC-B4B192FBF8E1 - 7A413591-C18E-4618-A2AC-B4B192FBF8E1</string>
+			<key>to</key>
+			<string>212F9D48-25C6-435F-90F4-B3BBC0CE3807 - 212F9D48-25C6-435F-90F4-B3BBC0CE3807</string>
+		</dict>
+		<key>EEB0A179-3971-426B-ABFB-BB7C460918AF</key>
+		<dict>
+			<key>from</key>
+			<string>8004D682-BE80-4A7D-8525-77E8E39459D5 - 8004D682-BE80-4A7D-8525-77E8E39459D5</string>
+			<key>to</key>
+			<string>0BEE290F-11B2-4DCD-9908-E2CC442F8CE2 - 0BEE290F-11B2-4DCD-9908-E2CC442F8CE2</string>
 		</dict>
 	</dict>
 	<key>variables</key>
