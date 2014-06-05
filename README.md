@@ -8,7 +8,7 @@
 
 ###Tips:
 * I highly recommend giving this service a keyboard shortcut. You can do this by going to System Preferences > Keyboard > Shortcuts > Services (left box), and finding the run_command_on_file item. Assign your favorite shortcut to this!
-![ScreenShot](http://imgur.com/MujmvYi)
+![ScreenShot](screenshot.png)
 
 
 ###Usage:
