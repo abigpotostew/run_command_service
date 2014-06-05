@@ -1,16 +1,15 @@
 #Run Shell Command Finder Service
 ##By Stewart Bracken
-======
-Mac Finder service to quickly run a shell command on finder items
-
-Here's a neat workflow / Finder service that runs a shell command on selected files & folders in Finder.
+===
+####Mac Finder service to quickly run a shell command on selected Finder items
 
 ###Installation:
 1. Place 'run_command_on_files.workflow' into ~/Libary/Services
 
 ###Tips:
 * I highly recommend giving this service a keyboard shortcut. You can do this by going to System Preferences > Keyboard > Shortcuts > Services (left box), and finding the run_command_on_file item. Assign your favorite shortcut to this!
-http://imgur.com/MujmvYi
+![ScreenShot](http://imgur.com/MujmvYi)
+
 
 ###Usage:
 1. Highlight items in Finder.
