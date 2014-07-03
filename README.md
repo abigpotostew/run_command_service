@@ -1,4 +1,4 @@
-#Run Shell Command Finder Service v0.5
+#Run Shell Command Finder Service v0.6
 ##By Stewart Bracken
 ===
 ####Mac Finder service to quickly run a shell command on selected Finder items
@@ -20,9 +20,10 @@
 
 
 #####Bugs:
-* as of v0.6 file names with spaces don't work. this will be fixed soon!
+* none that I know of. Please let me know if you find any
 
 #####Fixed Bugs:
+* as of v0.5 file names with spaces don't work. fixed in v0.6
 * rm doesn't work. fixed in v0.5
 
 ======
