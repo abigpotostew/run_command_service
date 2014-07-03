@@ -13,7 +13,7 @@
 
 ###Usage:
 1. Highlight items in Finder.
-2. Activate the service. Use your shortcut, or control click the selection, navtgate to Services, and select run_command_on_file.
+2. Activate the service. Use your shortcut, or control click the selection, navitgate to Services, and select run_command_on_files.
 3. Type in a shell command. Use the operator '@' to insert the filename into the command. Place the double operator, '@@', to insert the full absolute path for the selected file in your shell command.
 
 ======
@@ -32,6 +32,7 @@
 * The script now changes directories into the parent folder of your selected finder item before running the shell command.
 * '@' operator changed to inserting the filename + extension of the selected finder item. 
 * '@@' operator added which inserts the full absolute path of the selected finder item.
+
 ####v0.5
 * updated applescript algorithm to a simplified terminal do script process.
 * for each selected finder item, a new terminal window opens to easily view script output.
