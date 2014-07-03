@@ -18,6 +18,79 @@
 					<key>Container</key>
 					<string>List</string>
 					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>2.1.1</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict/>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>AMRequiredResources</key>
+				<array/>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Get Selected Finder Items 2.action</string>
+				<key>ActionName</key>
+				<string>Get Selected Finder Items</string>
+				<key>ActionParameters</key>
+				<dict/>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.Get_Selected_Finder_Items_2</string>
+				<key>CFBundleVersion</key>
+				<string>2.1.1</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryFilesAndFolders</string>
+				</array>
+				<key>Class Name</key>
+				<string>AMGetSelectedFinderItemsAction</string>
+				<key>IgnoresInput</key>
+				<true/>
+				<key>InputUUID</key>
+				<string>F53F4ABB-CBC8-4254-ABA5-98E2775CA0D9</string>
+				<key>Keywords</key>
+				<array/>
+				<key>OutputUUID</key>
+				<string>13E3CCB8-EBDB-433A-97B2-F05087D0A050</string>
+				<key>UUID</key>
+				<string>E8604AB9-C15B-499C-BC91-4CF38C54C56C</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>arguments</key>
+				<dict/>
+				<key>conversionLabel</key>
+				<integer>0</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
 					<false/>
 					<key>Types</key>
 					<array>
@@ -113,7 +186,7 @@
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>422.000000:917.000000</string>
+				<string>422.000000:787.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Set Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -215,7 +288,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>422.000000:813.000000</string>
+				<string>422.000000:683.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -260,7 +333,7 @@ end run</string>
 					<dict>
 						<key>tokenizedValue</key>
 						<array>
-							<string>[[ Shell Command ]] Use '@' to place filename.</string>
+							<string>[[ Shell Command ]] Use '@' to place filename. Use '@@' to place absolute file path. This app will cd into the directory of the selection.</string>
 						</array>
 					</dict>
 					<key>requireInput</key>
@@ -282,13 +355,13 @@ end run</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>buttonAffirmative</key>
-					<string>Bash!</string>
+					<string>Execute</string>
 					<key>buttonNegative</key>
 					<string>Cancel</string>
 					<key>defaultAnswer</key>
 					<string>open @</string>
 					<key>defaultMessage</key>
-					<string>[[ Shell Command ]] Use '@' to place filename.</string>
+					<string>[[ Shell Command ]] Use '@' to place filename. Use '@@' to place absolute file path. This app will cd into the directory of the selection.</string>
 					<key>requireInput</key>
 					<true/>
 				</dict>
@@ -396,7 +469,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>422.000000:771.000000</string>
+				<string>422.000000:641.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Ask for Text.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -506,7 +579,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>422.000000:589.000000</string>
+				<string>422.000000:459.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Set Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -549,6 +622,8 @@ end run</string>
 				<dict>
 					<key>Container</key>
 					<string>List</string>
+					<key>Optional</key>
+					<true/>
 					<key>Types</key>
 					<array>
 						<string>*</string>
@@ -618,7 +693,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>422.000000:547.000000</string>
+				<string>422.000000:417.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -661,9 +736,11 @@ end run</string>
 				<dict>
 					<key>Container</key>
 					<string>List</string>
+					<key>Optional</key>
+					<true/>
 					<key>Types</key>
 					<array>
-						<string>*</string>
+						<string>com.apple.applescript.object</string>
 					</array>
 				</dict>
 				<key>AMRequiredResources</key>
@@ -728,7 +805,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>422.000000:505.000000</string>
+				<string>422.000000:375.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -776,7 +853,8 @@ end run</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	set file_keyword to "@" -- special keyword to replace with file path	if input is not {} then --if there's input at all		set cmd_list to {}		set shell_cmd to "open"		set file_list to {}		if the class of the input is list then			set shell_cmd to the first item of input			set file_list to items 2 thru end of input		end if				repeat with f in file_list			set posix_file_path to POSIX path of f			set new_cmd to (shell_cmd &amp; " " &amp; posix_file_path) -- not working not sure why			if contains_chars(shell_cmd, file_keyword) then				set new_cmd to replace_chars(shell_cmd, file_keyword, posix_file_path)			end if			set end of cmd_list to new_cmd		end repeat				set error_list to {}		repeat with command in cmd_list			try				set output to execCmd(command, 0)			on error error_string number error_number				set end of error_list to (error_string)			end try		end repeat			end if	end runon contains_chars(this_text, search_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	if (count of item_list) is 0 then		return false	else		return true	end ifend contains_charson replace_chars(this_text, search_string, replacement_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	set AppleScript's text item delimiters to the replacement_string	set this_text to the item_list as string	set AppleScript's text item delimiters to ""	return this_textend replace_charson execCmd(cmd, pause)	tell application "Terminal"		set cmd_output to do script cmd		activate	end tell	(*tell application "System Events"		tell application process "Terminal"			tell application "System Events" to keystroke "t" using command down			keystroke cmd			keystroke return			delay 0.128		end tell	end tell*)	delay pause	return cmd_outputend execCmd</string>
+					<string>on run {input, parameters}	set filename_keyword to "@" -- special keyword to replace with file path	set path_keyword to "@@"	if input is not {} then --if there's input at all		set cmd_list to {}		set input_shell_cmd to "open"		set file_list to {}		if the class of the input is list then			set input_shell_cmd to the first item of input			set file_list to items 2 thru end of input		end if				repeat with f in file_list			set posix_file_path to "'" &amp; (POSIX path of f) &amp; "'"			set file_string to f as string			tell application "Finder" to set {dispName, nameExt, isHidden} to {displayed name, name extension, extension hidden} of alias file_string			set baseName to ""			if isHidden or nameExt is equal to "" then				set baseName to dispName			else				set baseName to dispName				--set baseName to ((characters 1 through (-2 - (count of nameExt)) of dispName) as text) --not rly working..			end if			set baseName to "'" &amp; dispName &amp; "'"			--set baseName to result --not working either						--set new_cmd to (input_shell_cmd &amp; " " &amp; posix_file_path) -- not working not sure why						--First insert absolute path to			if contains_chars(input_shell_cmd, path_keyword) then				set new_cmd to replace_chars(input_shell_cmd, path_keyword, posix_file_path)			end if						--Insert filename			if contains_chars(new_cmd, filename_keyword) then				set new_cmd to replace_chars(new_cmd, filename_keyword, baseName)			end if						set parent_folder to POSIX path of (file_string &amp; "::")			set new_cmd to "cd '" &amp; parent_folder &amp; "'; 
+" &amp; new_cmd			set end of cmd_list to new_cmd		end repeat				set error_list to {}		repeat with command in cmd_list			try				set output to execCmd(command, 0)			on error error_string number error_number				set end of error_list to (error_string)			end try		end repeat			end if	end runon contains_chars(this_text, search_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	if (count of item_list) is 0 then		return false	else		return true	end ifend contains_charson replace_chars(this_text, search_string, replacement_string)	set AppleScript's text item delimiters to the search_string	set the item_list to every text item of this_text	set AppleScript's text item delimiters to the replacement_string	set this_text to the item_list as string	set AppleScript's text item delimiters to ""	return this_textend replace_charson execCmd(cmd, pause)	tell application "Terminal"		set cmd_output to do script cmd		activate	end tell	(*tell application "System Events"		tell application process "Terminal"			tell application "System Events" to keystroke "t" using command down			keystroke cmd			keystroke return			delay 0.128		end tell	end tell*)	delay pause	return cmd_outputend execCmd</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -832,7 +910,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>422.000000:463.000000</string>
+				<string>422.000000:333.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -842,47 +920,54 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>1C170A52-52C6-4907-B4A1-85C374014789</key>
+		<key>50BDA07F-A3F2-4D28-AF46-16214628A4CD</key>
 		<dict>
 			<key>from</key>
-			<string>23044594-E1AB-4607-AB06-A869CF593B63 - 23044594-E1AB-4607-AB06-A869CF593B63</string>
+			<string>212F9D48-25C6-435F-90F4-B3BBC0CE3807 - 212F9D48-25C6-435F-90F4-B3BBC0CE3807</string>
 			<key>to</key>
-			<string>1F591D3B-56D0-493B-9D44-FC657AE46AB3 - 1F591D3B-56D0-493B-9D44-FC657AE46AB3</string>
+			<string>1D5CE354-08AB-490E-AE5A-C1E8B49E3B90 - 1D5CE354-08AB-490E-AE5A-C1E8B49E3B90</string>
 		</dict>
-		<key>78579698-C3DE-49F1-B3D4-87CD7389979E</key>
+		<key>553274AE-00FD-42FE-A093-6CF26C0650FF</key>
 		<dict>
 			<key>from</key>
-			<string>1F591D3B-56D0-493B-9D44-FC657AE46AB3 - 1F591D3B-56D0-493B-9D44-FC657AE46AB3</string>
-			<key>to</key>
 			<string>65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A - 65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A</string>
+			<key>to</key>
+			<string>7A413591-C18E-4618-A2AC-B4B192FBF8E1 - 7A413591-C18E-4618-A2AC-B4B192FBF8E1</string>
 		</dict>
-		<key>8C598CB9-5170-4E0B-9C25-463B3E532D26</key>
+		<key>9A716442-FEE8-48D5-A7F4-6A9F1223C3B0</key>
 		<dict>
 			<key>from</key>
 			<string>1D5CE354-08AB-490E-AE5A-C1E8B49E3B90 - 1D5CE354-08AB-490E-AE5A-C1E8B49E3B90</string>
 			<key>to</key>
 			<string>8004D682-BE80-4A7D-8525-77E8E39459D5 - 8004D682-BE80-4A7D-8525-77E8E39459D5</string>
 		</dict>
-		<key>9BE36AD0-15B9-4619-8897-30D01E9CBF86</key>
+		<key>BB76633B-A006-41B8-ADAB-2C9ADE5B395A</key>
 		<dict>
 			<key>from</key>
-			<string>212F9D48-25C6-435F-90F4-B3BBC0CE3807 - 212F9D48-25C6-435F-90F4-B3BBC0CE3807</string>
+			<string>1F591D3B-56D0-493B-9D44-FC657AE46AB3 - 1F591D3B-56D0-493B-9D44-FC657AE46AB3</string>
 			<key>to</key>
-			<string>1D5CE354-08AB-490E-AE5A-C1E8B49E3B90 - 1D5CE354-08AB-490E-AE5A-C1E8B49E3B90</string>
-		</dict>
-		<key>D3FA13B6-7E3E-451B-99F6-DF6490FEF34D</key>
-		<dict>
-			<key>from</key>
 			<string>65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A - 65F977AE-491D-4E3D-B4BC-DFAB66FA1A2A</string>
-			<key>to</key>
-			<string>7A413591-C18E-4618-A2AC-B4B192FBF8E1 - 7A413591-C18E-4618-A2AC-B4B192FBF8E1</string>
 		</dict>
-		<key>D6BF90B6-23AF-4015-923C-F2742405D644</key>
+		<key>C8601F17-D996-489B-BF44-5A7628263D45</key>
+		<dict>
+			<key>from</key>
+			<string>E8604AB9-C15B-499C-BC91-4CF38C54C56C - E8604AB9-C15B-499C-BC91-4CF38C54C56C</string>
+			<key>to</key>
+			<string>23044594-E1AB-4607-AB06-A869CF593B63 - 23044594-E1AB-4607-AB06-A869CF593B63</string>
+		</dict>
+		<key>D36E78E1-6A3A-486B-834D-919E86A51F60</key>
 		<dict>
 			<key>from</key>
 			<string>7A413591-C18E-4618-A2AC-B4B192FBF8E1 - 7A413591-C18E-4618-A2AC-B4B192FBF8E1</string>
 			<key>to</key>
 			<string>212F9D48-25C6-435F-90F4-B3BBC0CE3807 - 212F9D48-25C6-435F-90F4-B3BBC0CE3807</string>
+		</dict>
+		<key>F2D0ACB7-2A3C-46E1-8476-AB97122E0064</key>
+		<dict>
+			<key>from</key>
+			<string>23044594-E1AB-4607-AB06-A869CF593B63 - 23044594-E1AB-4607-AB06-A869CF593B63</string>
+			<key>to</key>
+			<string>1F591D3B-56D0-493B-9D44-FC657AE46AB3 - 1F591D3B-56D0-493B-9D44-FC657AE46AB3</string>
 		</dict>
 	</dict>
 	<key>variables</key>
