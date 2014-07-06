@@ -12,15 +12,15 @@
 
 
 ###Usage:
-1. Highlight items in Finder.
-2. Activate the service. Use your shortcut, or control click the selection, navitgate to Services, and select run_command_on_files.
-3. Type in a shell command. Use the operator '@' to insert the filename into the command. Place the double operator, '@@', to insert the full absolute path for the selected file in your shell command.
+1. Highlight item(s) in Finder.
+2. Activate the service: (A) Use your shortcut. or (B) Control click the selection, navigate to Services, and select run_command_on_files.
+3. Type in a shell command. Use the operator '@' to insert the filename into the command. Place the double operator, '@@', to insert the full absolute path for the selected file in your shell command. Note that this service sets the working directory to the parent directory of the selection.
 
 ======
 
 
 #####Bugs:
-* none that I know of. Please let me know if you find any
+* none that I know of. Please let me know if you find any.
 
 #####Fixed Bugs:
 * as of v0.5 file names with spaces don't work. fixed in v0.6
